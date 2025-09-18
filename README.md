@@ -86,3 +86,15 @@ Pull requests serão avaliadas e podem ser integradas para evoluir a página.
 Licença
 
 MIT License © [Seu Nome]
+
+Atualizações automáticas:
+Sempre que você fizer mudanças no seu projeto e rodar:
+
+git add .
+git commit -m "Atualização X"
+git push
+
+O GitHub Pages atualiza o site automaticamente.
+Então, qualquer pessoa que tenha o link vai ver a versão mais recente.
+
+https://diegoduartepacifico123-png.github.io/meu-site-sobremim/
