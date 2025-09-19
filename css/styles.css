@@ -362,3 +362,46 @@ nav a.active {
   }
 }
 
+/* CTA chamativo na página principal */
+#cta-servicos {
+  background: linear-gradient(90deg, #00ff88, #00b8ff);
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin: 50px 0;
+  color: #0d0d0d;
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+}
+
+#cta-servicos h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0d0d0d;
+}
+
+#cta-servicos p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #0d0d0d;
+}
+
+#cta-servicos .cta-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: #0d0d0d;
+  background: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+#cta-servicos .cta-btn:hover {
+  background: #00ff88;
+  color: #0d0d0d;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #00ff88, 0 0 30px #00b8ff;
+}
+
+
