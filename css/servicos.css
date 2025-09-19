@@ -283,51 +283,14 @@ footer {
   font-weight: bold;
   color: #00ff88;
   text-align: center;
-  text-shadow:
-    0 0 5px #00ff88,
-    0 0 10px #00ff88,
-    0 0 20px #00ff88,
-    0 0 40px #00b8ff,
-    0 0 80px #00b8ff,
-    0 0 90px #00b8ff,
-    0 0 100px #00b8ff;
+  filter: drop-shadow(0 0 10px #00ff88);
   animation: neonPulse 2s infinite alternate;
 }
 
 @keyframes neonPulse {
-  0% {
-    color: #00ff88;
-    text-shadow:
-      0 0 5px #00ff88,
-      0 0 10px #00ff88,
-      0 0 20px #00ff88,
-      0 0 40px #00b8ff,
-      0 0 80px #00b8ff,
-      0 0 90px #00b8ff,
-      0 0 100px #00b8ff;
-  }
-  50% {
-    color: #00cc66;
-    text-shadow:
-      0 0 8px #00cc66,
-      0 0 15px #00cc66,
-      0 0 25px #00b8ff,
-      0 0 50px #00b8ff,
-      0 0 90px #00b8ff,
-      0 0 100px #00b8ff,
-      0 0 120px #00b8ff;
-  }
-  100% {
-    color: #008844;
-    text-shadow:
-      0 0 10px #008844,
-      0 0 20px #008844,
-      0 0 30px #00b8ff,
-      0 0 60px #00b8ff,
-      0 0 100px #00b8ff,
-      0 0 120px #00b8ff,
-      0 0 140px #00b8ff;
-  }
+  0%   { filter: drop-shadow(0 0 10px #00ff88); }
+  50%  { filter: drop-shadow(0 0 20px #00cc66); }
+  100% { filter: drop-shadow(0 0 15px #008844); }
 }
 
 /* ------------------------
