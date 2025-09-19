@@ -43,7 +43,8 @@ header {
 
 .hero h1 {
   font-size: 2.5rem;
-  color: #00ff88;
+  color: #00ffcc;  /* verde mais claro */
+  text-shadow: 0 0 8px #00ffcc, 0 0 12px #00b8ff; /* brilho */
   margin-bottom: 15px;
 }
 
@@ -66,6 +67,13 @@ header {
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.servico-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .servico-card:hover {
@@ -85,18 +93,23 @@ header {
 }
 
 .servico-card .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 18px;
   border-radius: 6px;
   background: linear-gradient(90deg, #00ff88, #00b8ff);
   color: #0d0d0d;
   font-weight: bold;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  min-width: 140px;
 }
 
 .servico-card .btn:hover {
   background: linear-gradient(90deg, #00b8ff, #00ff88);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #00ff88, 0 0 24px #00b8ff;
 }
 
 /* Seção de contato */
@@ -119,18 +132,23 @@ header {
 }
 
 .contato .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 20px;
   border-radius: 8px;
   background: linear-gradient(90deg, #00ff88, #00b8ff);
   color: #0d0d0d;
   font-weight: bold;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  min-width: 160px;
 }
 
 .contato .btn:hover {
   background: linear-gradient(90deg, #00b8ff, #00ff88);
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px #00ff88, 0 0 24px #00b8ff;
 }
 
 /* Rodapé */
@@ -145,12 +163,200 @@ footer {
 
 /* Animação de entrada dos cards */
 .servico-card {
-  opacity: 0;
-  transform: translateY(30px);
   transition: all 0.6s ease-in-out;
 }
 
-.servico-card.show {
-  opacity: 1;
-  transform: translateY(0);
+/* ------------------------
+   NOVAS MELHORIAS
+------------------------- */
+
+/* CTA dentro da página de serviços */
+#cta-servicos {
+  background: linear-gradient(90deg, #00ff88, #00b8ff);
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin: 50px 0;
+  color: #0d0d0d;
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
 }
+
+#cta-servicos h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #0d0d0d;
+}
+
+#cta-servicos p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #0d0d0d;
+}
+
+#cta-servicos .cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  color: #0d0d0d;
+  background: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+#cta-servicos .cta-btn:hover {
+  background: #00ff88;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #00ff88, 0 0 30px #00b8ff;
+}
+
+/* Alinhamento uniforme dos botões de contato */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.form-actions .btn,
+.form-actions .btn.alt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-actions .btn:hover,
+.form-actions .btn.alt:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #00ff88, 0 0 30px #00b8ff;
+}
+
+/* Responsividade melhorada */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .servicos-grid {
+    gap: 20px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-actions .btn,
+  .form-actions .btn.alt {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .contato h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Efeito neon pulsante para o título do HERO */
+.animated-title {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #00ff88;
+  text-align: center;
+  text-shadow:
+    0 0 5px #00ff88,
+    0 0 10px #00ff88,
+    0 0 20px #00ff88,
+    0 0 40px #00b8ff,
+    0 0 80px #00b8ff,
+    0 0 90px #00b8ff,
+    0 0 100px #00b8ff;
+  animation: neonPulse 2s infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% {
+    color: #00ff88;
+    text-shadow:
+      0 0 5px #00ff88,
+      0 0 10px #00ff88,
+      0 0 20px #00ff88,
+      0 0 40px #00b8ff,
+      0 0 80px #00b8ff,
+      0 0 90px #00b8ff,
+      0 0 100px #00b8ff;
+  }
+  50% {
+    color: #00cc66;
+    text-shadow:
+      0 0 8px #00cc66,
+      0 0 15px #00cc66,
+      0 0 25px #00b8ff,
+      0 0 50px #00b8ff,
+      0 0 90px #00b8ff,
+      0 0 100px #00b8ff,
+      0 0 120px #00b8ff;
+  }
+  100% {
+    color: #008844;
+    text-shadow:
+      0 0 10px #008844,
+      0 0 20px #008844,
+      0 0 30px #00b8ff,
+      0 0 60px #00b8ff,
+      0 0 100px #00b8ff,
+      0 0 120px #00b8ff,
+      0 0 140px #00b8ff;
+  }
+}
+
+/* ------------------------
+   PORTFÓLIO
+------------------------- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.portfolio-grid .thumb {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.2);
+}
+
+.portfolio-grid .thumb img {
+  width: 100%;
+  height: 200px;          /* altura fixa para uniformidade */
+  object-fit: cover;       /* mantém proporção e corta se necessário */
+  display: block;
+  transition: transform 0.3s;
+}
+
+.portfolio-grid .thumb img:hover {
+  transform: scale(1.05);  /* efeito de zoom ao passar o mouse */
+}
+
+
+
