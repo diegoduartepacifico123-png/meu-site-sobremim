@@ -404,4 +404,105 @@ nav a.active {
   box-shadow: 0 0 15px #00ff88, 0 0 30px #00b8ff;
 }
 
+/* ------------------------
+   SEÇÃO: ENSINO DE CÓDIGO
+------------------------- */
+#ensino-codigo {
+  background: linear-gradient(120deg, #0d0d0d, #111111, #0d0d0d);
+  text-align: center;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+  animation: bgMove 8s linear infinite;
+}
+
+/* Fundo animado */
+@keyframes bgMove {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0 0; }
+}
+
+/* Botão animado */
+.btn-codigo {
+  display: inline-block;
+  padding: 18px 32px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #0d0d0d;
+  background: linear-gradient(90deg, #00ff88, #00b8ff);
+  border-radius: 16px;
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de onda ao passar o mouse */
+.btn-codigo::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(0, 255, 136, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: 0;
+}
+
+.btn-codigo:hover::before {
+  width: 300px; height: 300px;
+}
+
+/* Elevação do botão */
+.btn-codigo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 255, 136, 0.6);
+  z-index: 1;
+}
+
+/* Pré-visualização do código */
+.codigo-preview {
+  margin-top: 20px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #1a1a1a;
+  border-left: 4px solid #00ff88;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00ff88;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  overflow-x: auto;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Mostrar ao clicar */
+.codigo-preview.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mensagem piscante */
+.cta-codigo::after {
+  content: "Novos ensinamentos em breve!";
+  display: block;
+  margin-top: 25px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #00ff88;
+  animation: blinkText 1.5s linear infinite;
+}
+
+@keyframes blinkText {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}
 

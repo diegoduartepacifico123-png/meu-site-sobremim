@@ -1,0 +1,135 @@
+/* ------------------------
+   ESTILOS - PAGINA DE ENSINO DE CÓDIGO
+------------------------- */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* Container geral */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* HEADER */
+.codigo-hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(90deg, #00ff88, #00b8ff);
+  color: #0d0d0d;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
+}
+
+.codigo-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px #00ff88, 0 0 12px #00b8ff;
+}
+
+.codigo-hero p {
+  font-size: 1.3rem;
+  color: #111;
+}
+
+/* SEÇÃO ENSINO */
+.ensino {
+  margin: 60px 0;
+}
+
+.ensino h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00ff88;
+}
+
+.ensino p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #bbb;
+  font-size: 1.1rem;
+}
+
+/* CARDS DE CÓDIGO */
+.cards-codigo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card-codigo {
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-codigo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 136, 0.2);
+}
+
+/* HEADER DO CARD */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #111;
+  cursor: pointer;
+}
+
+.card-header span {
+  font-weight: bold;
+  color: #00ff88;
+}
+
+.btn-toggle {
+  background: linear-gradient(90deg, #00ff88, #00b8ff);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #0d0d0d;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-toggle:hover {
+  background: linear-gradient(90deg, #00b8ff, #00ff88);
+}
+
+/* CONTEÚDO DO CARD */
+.card-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #0d0d0d;
+  padding: 0 20px;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: #f5f5f5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.card-codigo.show .card-content {
+  padding: 15px 20px;
+  max-height: 700px;
+}
+
+
