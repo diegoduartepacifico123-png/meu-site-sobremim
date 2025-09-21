@@ -132,4 +132,24 @@ body {
   max-height: 700px;
 }
 
+.btn-voltar {
+  display: inline-block;
+  margin: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #00ff88, #00b8ff);
+  color: #0d0d0d;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.3);
+  transition: all 0.3s ease;
+  position: relative; /* botão fica no fluxo normal */
+}
+
+.btn-voltar:hover {
+  background: linear-gradient(90deg, #00b8ff, #00ff88);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 255, 136, 0.5);
+}
+
 
