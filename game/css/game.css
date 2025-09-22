@@ -1,0 +1,37 @@
+/* game/css/game.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#game-container {
+  width: 100%;
+  height: 100vh;
+  background: #000;
+}
+
+.overlay-buttons {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 10px;
+}
+
+.overlay-buttons button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: rgba(0,123,255,0.8);
+  color: #fff;
+}
+
+.overlay-buttons button:hover {
+  background-color: rgba(0,86,179,0.9);
+}

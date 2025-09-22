@@ -16,17 +16,26 @@ function typeWriter(element, text, speed = 100) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Animar título
   const title = document.querySelector("h1");
   if (title) {
     const text = title.textContent;
     title.textContent = ""; // limpa para animar
     typeWriter(title, text, 80);
   }
+
+  // ========= 6) Botão para abrir Code Runner =========
+  const btnJogo = document.getElementById('btn-jogo');
+  if (btnJogo) {
+    btnJogo.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'game/index.html';
+    });
+  }
 });
 
 // ========= 2) Scroll suave + menu ativo =========
 const links = document.querySelectorAll("a[href^='#']");
-
 links.forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
@@ -50,9 +59,7 @@ window.addEventListener("scroll", () => {
     const id = sec.getAttribute("id");
 
     if (scrollY >= top && scrollY < top + height) {
-      document
-        .querySelectorAll("nav a")
-        .forEach(a => a.classList.remove("active"));
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
       const activeLink = document.querySelector(`nav a[href="#${id}"]`);
       if (activeLink) activeLink.classList.add("active");
     }
@@ -66,11 +73,7 @@ backToTop.classList.add("back-to-top");
 document.body.appendChild(backToTop);
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    backToTop.style.display = "block";
-  } else {
-    backToTop.style.display = "none";
-  }
+  backToTop.style.display = window.scrollY > 300 ? "block" : "none";
 });
 
 backToTop.addEventListener("click", () => {
@@ -84,8 +87,6 @@ function copyToClipboard(text) {
   });
 }
 
-// Exemplo de uso: botão com onclick="copyToClipboard('https://discord.gg/seulink')"
-
 // ========= 5) Toast de aviso =========
 function showToast(message) {
   const toast = document.createElement("div");
@@ -93,10 +94,7 @@ function showToast(message) {
   toast.textContent = message;
   document.body.appendChild(toast);
 
-  setTimeout(() => {
-    toast.classList.add("show");
-  }, 100);
-
+  setTimeout(() => toast.classList.add("show"), 100);
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.remove(), 500);
