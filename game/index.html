@@ -17,11 +17,43 @@
   <!-- Canvas do jogo -->
   <div id="game-container"></div>
 
+
+  <!-- ========================= -->
+  <!-- DESAFIO DE ESCRITA (NOVO) -->
+  <!-- ========================= -->
+  <div id="desafioEscrita">
+
+    <h1>🎯 Desafio de Escrita</h1>
+
+    <div id="telaInicial">
+      <button id="iniciarBtn">Iniciar Desafio</button>
+    </div>
+
+    <div id="jogoEscrita" style="display:none;">
+      <h2 id="tema"></h2>
+      <h3 id="tempo">10:00</h3>
+
+      <textarea id="texto" placeholder="Comece a escrever..."></textarea>
+    </div>
+
+    <div id="derrota" style="display:none;">
+      <h2>Você perdeu o desafio 😢</h2>
+      <button id="anuncioBtn">Assistir anúncio para tentar novamente</button>
+    </div>
+
+  </div>
+  <!-- ========================= -->
+
+
   <script src="js/phaser.min.js"></script>
   <script src="js/game.js"></script>
   <script src="js/player.js"></script>
   <script src="js/enemies.js"></script>
   <script src="js/questionManager.js"></script>
+
+  <!-- depois você vai adicionar o JS do desafio aqui -->
+  <!-- <script src="js/desafio.js"></script> -->
+
   <script>
     // Abrir automaticamente em tela cheia (opcional)
     document.addEventListener("DOMContentLoaded", () => {
