@@ -1,66 +1,208 @@
-<!-- game/index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- VIEWPORT MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
   <title>Code Runner</title>
   <link rel="stylesheet" href="css/game.css">
+
+  <style>
+    body {
+      margin:0;
+      padding:0;
+      background:#000;
+      font-family: Arial, sans-serif;
+    }
+
+    #desafioEscrita {
+      text-align:center;
+      color:white;
+      margin-top:20px;
+      padding:10px;
+    }
+
+    #roleta-container {
+      position:relative;
+      width:300px;
+      height:300px;
+      margin:20px auto;
+    }
+
+    #ponteiro {
+      position:absolute;
+      top:-12px;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:32px;
+      color:red;
+      z-index:10;
+    }
+
+    #roleta {
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      border:6px solid cyan;
+      transition:transform 4s cubic-bezier(.17,.67,.12,1.02);
+      box-shadow:0 0 25px cyan;
+      overflow:hidden;
+      background:#111;
+    }
+
+    #temaSorteado {
+      margin-top:15px;
+      font-size:18px;
+      color:yellow;
+    }
+
+    #girarBtn,
+    #iniciarBtn,
+    #enviarBtn {
+      padding:14px 24px;
+      background:linear-gradient(45deg,#00f,#0ff);
+      border:none;
+      border-radius:10px;
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+      box-shadow:0 0 10px cyan;
+      margin:10px;
+      width:90%;
+      max-width:300px;
+    }
+
+    .hud {
+      display:flex;
+      justify-content:space-around;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-bottom:10px;
+      font-size:14px;
+    }
+
+    textarea {
+      width:95%;
+      height:45vh;
+      margin-top:10px;
+      font-size:16px;
+      padding:10px;
+      border-radius:8px;
+      resize:none;
+    }
+
+    .overlay-buttons {
+      position:fixed;
+      top:10px;
+      left:10px;
+      right:10px;
+      display:flex;
+      justify-content:space-between;
+      z-index:1000;
+    }
+
+    .overlay-buttons button {
+      padding:8px 12px;
+      font-size:14px;
+    }
+
+    /* 📱 MOBILE */
+    @media (max-width: 768px) {
+
+      #roleta-container {
+        width:220px;
+        height:220px;
+      }
+
+      h1 {
+        font-size:20px;
+      }
+
+      .hud {
+        flex-direction:column;
+        align-items:center;
+      }
+
+      textarea {
+        height:50vh;
+      }
+
+      #girarBtn,
+      #iniciarBtn,
+      #enviarBtn {
+        font-size:16px;
+      }
+
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Botões de navegação sobrepostos -->
-  <div class="overlay-buttons">
-    <button id="btn-voltar">⬅ Voltar</button>
-    <button id="btn-projetos">➡ Conhecer mais projetos</button>
+
+<div class="overlay-buttons">
+  <button id="btn-voltar">⬅ Voltar</button>
+  <button id="btn-projetos">➡ Projetos</button>
+</div>
+
+<div id="game-container"></div>
+
+<div id="desafioEscrita">
+  <h1>🎯 Desafio de Escrita</h1>
+
+  <div id="telaInicial">
+    <div id="roleta-container">
+      <div id="ponteiro">⬇</div>
+      <div id="roleta"></div>
+    </div>
+
+    <button id="girarBtn">Girar Roleta</button>
+    <p id="temaSorteado"></p>
+    <button id="iniciarBtn" disabled>Iniciar Desafio</button>
   </div>
 
-  <!-- Canvas do jogo -->
-  <div id="game-container"></div>
-
-
-  <!-- ========================= -->
-  <!-- DESAFIO DE ESCRITA (NOVO) -->
-  <!-- ========================= -->
-  <div id="desafioEscrita">
-
-    <h1>🎯 Desafio de Escrita</h1>
-
-    <div id="telaInicial">
-      <button id="iniciarBtn">Iniciar Desafio</button>
+  <div id="jogoEscrita" style="display:none;">
+    <div class="hud">
+      <span id="tema"></span>
+      <span id="tempo">0:10</span>
+      <span id="erros">Erros: 0</span>
+      <span id="palavras">Palavras: 0</span>
     </div>
 
-    <div id="jogoEscrita" style="display:none;">
-      <h2 id="tema"></h2>
-      <h3 id="tempo">10:00</h3>
+    <textarea 
+      id="texto" 
+      placeholder="Comece a escrever..."
+      inputmode="text"
+      autocomplete="off"
+      autocorrect="off"
+      spellcheck="false"></textarea>
 
-      <textarea id="texto" placeholder="Comece a escrever..."></textarea>
-    </div>
-
-    <div id="derrota" style="display:none;">
-      <h2>Você perdeu o desafio 😢</h2>
-      <button id="anuncioBtn">Assistir anúncio para tentar novamente</button>
-    </div>
-
+    <button id="enviarBtn">Finalizar e Enviar</button>
   </div>
-  <!-- ========================= -->
 
+  <div id="derrota" style="display:none;">
+    <h2>Você perdeu o desafio 😢</h2>
+    <button id="anuncioBtn" onclick="location.reload()">Tentar novamente</button>
+  </div>
+</div>
 
-  <script src="js/phaser.min.js"></script>
-  <script src="js/game.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/enemies.js"></script>
-  <script src="js/questionManager.js"></script>
+<script src="js/phaser.min.js"></script>
+<script src="js/game.js"></script>
+<script src="js/player.js"></script>
+<script src="js/enemies.js"></script>
+<script src="js/questionManager.js"></script>
 
-  <!-- depois você vai adicionar o JS do desafio aqui -->
-  <!-- <script src="js/desafio.js"></script> -->
-
-  <script>
-    // Abrir automaticamente em tela cheia (opcional)
-    document.addEventListener("DOMContentLoaded", () => {
-      const gameContainer = document.getElementById("game-container");
-      // Iniciar o jogo Phaser aqui (game.js)
-      // game = new Phaser.Game(config);
-    });
-  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
